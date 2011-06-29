@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <syntax name="language-root.css.scss">
-	<!--
-	<zones>
 	
+	<zones>
+		<include syntax="language-root.css" />
+	</zones>
+		
+	<!--	
 		<zone name="itemize.group-start.comment.block.css">
 			<starts-with>/\*\s+@group\s</starts-with>
 			<ends-with>\*/</ends-with>
@@ -155,7 +158,6 @@
 					<subzones>
 						<include collection="comments"/>
 						<include collection="string-single" />
-						<!-- FIXME: should we even allow double strings here? The spec isn't really clear if they are allowed or not, but all the examples have single quotes only -->
 						<include collection="string-double" />
 					</subzones>
 				</capture>
@@ -174,7 +176,6 @@
 						<capture number="0" name="punctuation.end"/>
 					</ends-with>
 					<subzones>
-						<!-- FIXME: the zone names here are total crap -->
 						<zone name="selector.keyframe.css">
 							<starts-with>
 								<expression>(from|to)|([0-9\.]+%)</expression>
@@ -307,7 +308,7 @@
 			<zone name="property-name.simple">
 				<expression>[-a-zA-Z][\w-]*\s*(?=:|$)</expression>
 			</zone>
-			<!-- FIXME: property-value.simple is an exact duplicate of property-value, but for some reason Espresso crashes and burns if I separate it out into its own collection -->
+
 			<zone name="property-value.simple">
 				<starts-with>
 					<expression>(:)\s*</expression>
@@ -394,7 +395,6 @@
 		</collection>
 		
 		<collection name="comments">
-			<!-- This is not a valid CSS comment -->
 			<zone name="comment.line.invalid.css">
 				<starts-with>
 					<expression>//</expression>
