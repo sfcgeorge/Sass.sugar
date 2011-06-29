@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+	<language id="simon.george.CSS.SCSS">
+		
+		<!-- Note: root-zone will be deprecated in the next beta and replaced by syntax-name -->
+		<root-zone>language-root.css.scss</root-zone>
+		<name>SCSS</name>
+		<detectors>
+			<extension>scss</extension>
+			<extension>css.scss</extension>
+		</detectors>
+		
+		<default-extension>scss</default-extension>
+		<default-mime-type>text/css</default-mime-type>
+		
+	</language>
+	
+</settings>

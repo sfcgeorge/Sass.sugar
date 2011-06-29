@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<injections>
+	<!--
+	<injection name="injections.html.cssfix" selector="embedded-style.html *" action="insert-before-children">
+		<cut-off>&lt;/style></cut-off>
+	</injection>
+
+	<injection name="injections.html.jsfix" selector="embedded.language-root.js *" action="insert-before-children">
+		<cut-off>&lt;/script></cut-off>
+	</injection>
+	-->
+</injections>
