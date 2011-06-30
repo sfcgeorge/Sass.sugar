@@ -2,8 +2,67 @@
 <syntax name="language-root.css.scss">
 	
 	<zones>
+		<include collection="at-rule-include"/>
+		
 		<include syntax="language-root.css" />
+		
+		<zone name="property-list.block.css">
+			<subzones>
+				<include collection="at-rule-include"/>
+			</subzones>
+		</zone>
 	</zones>
+	
+	<library>
+		<collection name="at-rule-include">
+			<zone name="property-name">
+				<starts-with>
+					<expression>((@)include)</expression>
+					<capture number="1" name="keyword.control"/>
+					<capture number="2" name="punctuation.definition.keyword"/>
+				</starts-with>
+				<ends-with>
+					<expression>(?=\s)</expression>
+				</ends-with>
+			</zone>
+			<zone name="property-value">
+				<starts-with>
+					<expression>(?=(\s)[:.*#a-zA-Z@\\])</expression>
+					<capture number="1" name="punctuation.separator.key-value.css"/>
+				</starts-with>
+				<ends-with>
+					<expression>\s*(;|(?=\}))</expression>
+					<capture number="1" name="punctuation.terminator.rule.css"/>
+				</ends-with>
+				<subzones>
+					<zone name="support.function.misc.css">
+						<starts-with>
+							<expression>([-a-zA-Z])\s*(\()</expression>
+							<capture number="1" name="name"/>
+							<capture number="2" name="punctuation.section.function.css"/>
+						</starts-with>
+						<ends-with>
+							<expression>(\))</expression>
+							<capture number="1" name="punctuation.section.function.css"/>
+						</ends-with>
+						<subzones>
+							<include collection="string-single"/>
+							<include collection="string-double"/>
+							<zone name="constant.other.color.rgb-value.css">
+								<expression>(\b0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\s*,\s*)(0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\s*,\s*)(0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\b)</expression>
+							</zone>
+							<zone name="constant.other.color.rgb-percentage.css">
+								<expression>\b([0-9]{1,2}|100)\s*%,\s*([0-9]{1,2}|100)\s*%,\s*([0-9]{1,2}|100)\s*%</expression>
+							</zone>
+							<zone name="parameter.misc.css">
+								<expression>[^'") \t]+</expression>
+							</zone>
+						</subzones>
+					</zone>
+				</subzones>
+			</zone>
+		</collection>
+	</library>
 		
 	<!--	
 		<zone name="itemize.group-start.comment.block.css">
