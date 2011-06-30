@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <injections>
-	<injection name="injections.properties.css.scss" selector="property-list.block.css *" action="insert-after-children">
-		<starts-with>
-			<expression>((@)include)</expression>
-			<capture number="1" name="keyword.control"/>
-			<capture number="2" name="punctuation.definition.keyword"/>
-		</starts-with>
-		<ends-with>
-			<expression>(?=\s)</expression>
-		</ends-with>
+	<injection name="injections.properties.css.scss" selector="scss property-list.block.css" action="insert-after-children">
+		<include syntax="language-root.css.scss" collection="at-rule-include"/>
 	</injection>
 	
 	<!-- From HTML+XML - reference examples
