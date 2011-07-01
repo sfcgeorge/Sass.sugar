@@ -8,6 +8,14 @@ This Sugar is nowhere near complete. It's better than nothing, but barely. Here 
 * CSS (plain and simple) - this is inherited from the default CSS Sugar
 * @include selector (works well in blocks but dodgy at document root level)
 
+## Instalation
+
+1. Download the zip
+2. Extract said zip
+3. Remane to .sugar
+4. Click click this
+5. Restart Espresso
+
 ## What Why Who?
 
 I'm just a programmer and designer who loves Espresso and Sass. There [was] no Sass Sugar for Espresso in active development, and the one/two I found were incomplete. This Sugar is arguably more incomplete, but I aim to change that.
