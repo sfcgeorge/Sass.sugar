@@ -4,15 +4,4 @@
 	<injection name="injections.properties.css.scss" selector="scss property-list.block.css" action="insert-after-children">
 		<include syntax="language-root.css.scss" collection="at-rule-include"/>
 	</injection>
-	
-	<!-- From HTML+XML - reference examples
-	
-	<injection name="injections.html.cssfix" selector="embedded-style.html *" action="insert-before-children">
-		<cut-off>&lt;/style></cut-off>
-	</injection>
-
-	<injection name="injections.html.jsfix" selector="embedded.language-root.js *" action="insert-before-children">
-		<cut-off>&lt;/script></cut-off>
-	</injection>
-	-->
 </injections>
