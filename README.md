@@ -12,9 +12,9 @@ This Sugar is nowhere near complete. It's better than nothing, but barely. Here 
 
 1. Download the zip
 2. Extract said zip
-3. Remane to .sugar
-4. Click click this
-5. Restart Espresso
+3. Remane folder to .sugar
+4. Double click the .sugar file
+5. Restart Espresso - voila!
 
 ## What Why Who?
 
