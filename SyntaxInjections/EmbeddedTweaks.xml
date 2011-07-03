@@ -12,7 +12,7 @@
 				<capture number="1" name="keyword.other.unit.css"/>
 			</starts-with>
 			<ends-with>
-				<expression>(^[-a-zA-Z])</expression>
+				<expression>[^-a-zA-Z]</expression>
 			</ends-with>
 		</zone>
 	</injection>
