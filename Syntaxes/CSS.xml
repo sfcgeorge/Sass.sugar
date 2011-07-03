@@ -2,22 +2,6 @@
 <syntax name="language-root.css.scss">
 	
 	<zones>
-		<!--
-		<zone name="selector.css">
-			<starts-with>^(?=[:.*#a-zA-Z@\\])</starts-with>
-			<ends-with>(?=\{)</ends-with>
-			<subzones>
-			    <include collection="pseudo-classes"/>
-			    <include collection="string-double"/>
-			    <include collection="string-single"/>
-				<include collection="comments"/>
-				<zone name="punctuation.comma">
-					<expression>,</expression>
-				</zone>
-			</subzones>
-		</zone>
-		-->
-		
 		<include collection="at-rule-include"/>
 		
 		<include syntax="language-root.css" />

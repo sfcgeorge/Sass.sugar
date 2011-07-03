@@ -6,13 +6,14 @@ This Sugar is nowhere near complete. It's better than nothing, but barely. Here 
 
 * Use of .scss file extension or .css.scss extension to trigger the Sugar
 * CSS (plain and simple) - this is inherited from the default CSS Sugar
-* @include selector (works well in blocks but dodgy at document root level)
+* @include selector
+* $variables
 
 ## Instalation
 
 1. Download the zip
 2. Extract said zip
-3. Remane folder to .sugar
+3. Rename folder to .sugar
 4. Double click the .sugar file
 5. Restart Espresso - voila!
 
@@ -37,4 +38,4 @@ Aim to get the Syntax complete first, then work on Itemizers to get the Navigato
 * Try the Espresso IRC room -  ##espresso
 * Message me on GitHub
 * Tweet to me @sibrow
-* Email me... actually I have enought Russian brides as it is, sorry
+* Email me... actually I have enough Russian brides as it is, sorry

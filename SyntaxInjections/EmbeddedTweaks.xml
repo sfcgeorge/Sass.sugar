@@ -4,4 +4,16 @@
 	<injection name="injections.properties.css.scss" selector="scss property-list.block.css" action="insert-after-children">
 		<include syntax="language-root.css.scss" collection="at-rule-include"/>
 	</injection>
+	
+	<injection name="injections.variable-use.css.scss" selector="scss property-value" action="insert-after-children">
+		<zone>
+			<starts-with>
+				<expression>(\$[-a-zA-Z]+)</expression>
+				<capture number="1" name="keyword.other.unit.css"/>
+			</starts-with>
+			<ends-with>
+				<expression>(^[-a-zA-Z])</expression>
+			</ends-with>
+		</zone>
+	</injection>
 </injections>
