@@ -1,5 +1,7 @@
+@import "something";
+
 @include mixin(10px, ghjgjh 'ghj');
-@include another_mixin();
+@include another-mixin();
 
 #an_id_selector {
 	-browser-specific: property;
