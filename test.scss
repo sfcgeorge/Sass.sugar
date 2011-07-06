@@ -1,11 +1,17 @@
 @import "something";
 
+$something: 10px;
+$something: 10px !default;
+
 @include mixin(10px, ghjgjh 'ghj');
 @include another-mixin();
 
 #an_id_selector {
-	-browser-specific: property;
+	-browser-specific: $property;
 	height: 10px;
+	width: 50em !important;
+	$variable: definition;
+	$variable: definition !default;
 	background-image: url('somewhere');
 	@include mixin-inside-block(10px, something 'ghjgh' #45f rgb(210, 100, 20));
 	@include another-mixin;
@@ -21,4 +27,8 @@
 	#nested_selector_two {
 		/*nested comment*/
 	}
+}
+
+@mixin something-fancy($this, $one: 1, $other: 'summat') {
+	
 }

@@ -3,6 +3,8 @@
 	
 	<zones>
 		<include collection="at-rule-include"/>
+		<include collection="variable-names"/>
+		<include collection="variable-values"/>
 		
 		<include syntax="language-root.css" />
 	</zones>
@@ -42,6 +44,55 @@
 						<subzones>
 							<include syntax="language-root.css" collection="property-values"/>
 						</subzones>
+					</zone>
+				</subzones>
+			</zone>
+		</collection>
+		
+		<collection name="support-function-real-misc">
+			<zone name="support.function.real-misc.css">
+				<starts-with>
+					<expression>(-a-zA-Z)+\s*(\()</expression>
+					<capture number="1" name="name"/>
+					<capture number="2" name="punctuation.section.function.css"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\))</expression>
+					<capture number="1" name="punctuation.section.function.css"/>
+				</ends-with>
+				<subzones>
+					<include collection="string-single"/>
+					
+				</subzones>
+			</zone>
+		</collection>
+		
+		<collection name="variable-names">
+			<zone name="variable-name">
+				<starts-with>
+					<expression>(\$[-a-zA-Z]+)</expression>
+					<capture number="1" name="keyword.other.unit.css"/>
+				</starts-with>
+				<ends-with>
+					<expression>(?![-a-zA-Z])</expression>
+				</ends-with>
+			</zone>
+		</collection>
+		
+		<collection name="variable-values">
+			<zone name="variable-value">
+				<starts-with>
+					<expression>(:)\s*</expression>
+					<capture number="1" name="punctuation.separator.key-value.css"/>
+				</starts-with>
+				<ends-with>
+					<expression>\s*(;|(?=\}))</expression>
+					<capture number="1" name="punctuation.terminator.rule.css"/>
+				</ends-with>
+				<subzones>
+					<include syntax="language-root.css" collection="property-values"/>
+					<zone name="keyword.default.css">
+						<expression>\!\s*default</expression>
 					</zone>
 				</subzones>
 			</zone>

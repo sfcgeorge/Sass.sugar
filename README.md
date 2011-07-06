@@ -7,7 +7,9 @@ This Sugar is nowhere near complete. It's better than nothing, but barely. Here 
 * Use of .scss file extension or .css.scss extension to trigger the Sugar
 * CSS (plain and simple) - this is inherited from the default CSS Sugar
 * @include selector
-* $variables
+* @mixin definition
+* $variable use, $variable definitions at root level
+* !default
 
 ## Instalation
 
