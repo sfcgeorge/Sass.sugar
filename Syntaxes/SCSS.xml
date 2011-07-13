@@ -3,6 +3,8 @@
 	
 	<zones>
 		<include collection="at-rule-include"/>
+		<include collection="at-rule-warn"/>
+		<include collection="at-rule-debug"/>
 		<include collection="variable-names"/>
 		<include collection="variable-values"/>
 		
@@ -45,6 +47,40 @@
 							<include syntax="language-root.css" collection="property-values"/>
 						</subzones>
 					</zone>
+				</subzones>
+			</zone>
+		</collection>
+		
+		<collection name="at-rule-debug">
+			<zone name="at-rule.debug.css">
+				<starts-with>
+					<expression>((@)debug)</expression>
+					<capture number="1" name="keyword.control"/>
+					<capture number="2" name="punctuation.definition.keyword"/>
+				</starts-with>
+				<ends-with>
+					<expression>\s*(;|$)</expression>
+					<capture number="1" name="punctuation.definition.end"/>
+				</ends-with>
+				<subzones>
+					<include syntax="language-root.css" collection="property-values"/>
+				</subzones>
+			</zone>
+		</collection>
+		
+		<collection name="at-rule-warn">
+			<zone name="at-rule.warn.css">
+				<starts-with>
+					<expression>((@)warn)</expression>
+					<capture number="1" name="keyword.control"/>
+					<capture number="2" name="punctuation.definition.keyword"/>
+				</starts-with>
+				<ends-with>
+					<expression>\s*(;|$)</expression>
+					<capture number="1" name="punctuation.definition.end"/>
+				</ends-with>
+				<subzones>
+					<include syntax="language-root.css" collection="property-values"/>
 				</subzones>
 			</zone>
 		</collection>

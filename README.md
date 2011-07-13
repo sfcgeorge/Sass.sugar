@@ -2,14 +2,20 @@
 
 ## Features (Work in progress)
 
-This Sugar is nowhere near complete. It's better than nothing, but barely. Here is what is currently supported:
+This Sugar is incomplete. It's better than nothing. Here is what is currently supported:
 
 * Use of .scss file extension or .css.scss extension to trigger the Sugar
 * CSS (plain and simple) - this is inherited from the default CSS Sugar
 * @include selector
 * @mixin definition
+* @warn directive
+* @debug directive
+* @if @else if @else @for @while statements
 * $variable use, $variable definitions at root level
-* !default
+* !default suffix
+* functions (the syntax is already a part of CSS)
+* Nested selectors (only up to 5 levels deep, and only root level selectors show up in the navigator ATM)
+
 
 ## Instalation
 

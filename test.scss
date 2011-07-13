@@ -13,22 +13,49 @@ $something: 10px !default;
 	$variable: definition;
 	$variable: definition !default;
 	background-image: url('somewhere');
+	color: function($hue: 0, $saturation: 100%, $lightness: 50%);
 	@include mixin-inside-block(10px, something 'ghjgh' #45f rgb(210, 100, 20));
 	@include another-mixin;
+	
+	@if $type == ocean {
+		color: blue;
+	} @else if $type == matador {
+		color: red;
+	} @else if 1 + 1 == 2 {
+		color: green;
+	} @else {
+		color: black;
+	}
 }
 
 /*comment*/
 
 .a_class_selector {
 	#nested_selector {
-	
+		width: 50em !important;
+		$variable: definition !default;
+		@include another-mixin;
+		background-image: url('somewhere');
+		@include mixin-inside-block(10px, something 'ghjgh' #45f rgb(210, 100, 20));
+		
+		.too-much-nesting {
+			
+		}
+		
+		@for $i from 1 through 3 {
+		  .item-#{$i} { width: 2em * $i; }
+		}
 	}
 	
 	#nested_selector_two {
 		/*nested comment*/
+		@debug 10em + 12em;
 	}
 }
 
 @mixin something-fancy($this, $one: 1, $other: 'summat') {
 	
 }
+
+@warn "Assuming #{$y} to be in pixels";
+@debug 10em + 12em;

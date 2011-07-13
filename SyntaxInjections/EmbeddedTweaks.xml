@@ -3,6 +3,8 @@
 <injections>
 	<injection name="injections.properties.css.scss" selector="scss property-list.block.css" action="insert-after-children">
 		<include syntax="language-root.css.scss" collection="at-rule-include"/>
+		<include syntax="language-root.css.scss" collection="at-rule-warn"/>
+		<include syntax="language-root.css.scss" collection="at-rule-debug"/>
 	</injection>
 	
 	<injection name="injections.variable-use.css.scss" selector="scss property-value" action="insert-after-children">
@@ -35,6 +37,145 @@
 			</ends-with>
 			<subzones>
 				<include syntax="language-root.css" collection="property-values"/>
+			</subzones>
+		</zone>
+	</injection>
+	
+	<injection name="injections.nested-property-list-block.css.scss" selector="scss property-list.block.css" action="insert-after-children">
+		<!--<include syntax="language-root.css" collection="property-list"/>-->
+		<zone name="property-list.block.css">
+			<starts-with>
+				<expression>\{</expression>
+				<capture number="0" name="punctuation.begin"/>
+			</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+				<capture number="0" name="punctuation.end"/>
+			</ends-with>
+			<subzones>
+				<include syntax="language-root.css" collection="comments"/>
+				<include syntax="language-root.css" collection="properties"/>
+				<include syntax="language-root.css.scss" collection="at-rule-include"/>
+				<include syntax="language-root.css.scss" collection="at-rule-warn"/>
+				<include syntax="language-root.css.scss" collection="at-rule-debug"/>
+				<zone name="property-list.block.css">
+					<starts-with>
+						<expression>\{</expression>
+						<capture number="0" name="punctuation.begin"/>
+					</starts-with>
+					<ends-with>
+						<expression>\}</expression>
+						<capture number="0" name="punctuation.end"/>
+					</ends-with>
+					<subzones>
+						<include syntax="language-root.css" collection="comments"/>
+						<include syntax="language-root.css" collection="properties"/>
+						<include syntax="language-root.css.scss" collection="at-rule-include"/>
+						<include syntax="language-root.css.scss" collection="at-rule-warn"/>
+						<include syntax="language-root.css.scss" collection="at-rule-debug"/>
+						<zone name="property-list.block.css">
+							<starts-with>
+								<expression>\{</expression>
+								<capture number="0" name="punctuation.begin"/>
+							</starts-with>
+							<ends-with>
+								<expression>\}</expression>
+								<capture number="0" name="punctuation.end"/>
+							</ends-with>
+							<subzones>
+								<include syntax="language-root.css" collection="comments"/>
+								<include syntax="language-root.css" collection="properties"/>
+								<include syntax="language-root.css.scss" collection="at-rule-include"/>
+								<include syntax="language-root.css.scss" collection="at-rule-warn"/>
+								<include syntax="language-root.css.scss" collection="at-rule-debug"/>
+								<zone name="property-list.block.css">
+									<starts-with>
+										<expression>\{</expression>
+										<capture number="0" name="punctuation.begin"/>
+									</starts-with>
+									<ends-with>
+										<expression>\}</expression>
+										<capture number="0" name="punctuation.end"/>
+									</ends-with>
+									<subzones>
+										<include syntax="language-root.css" collection="comments"/>
+										<include syntax="language-root.css" collection="properties"/>
+										<include syntax="language-root.css.scss" collection="at-rule-include"/>
+										<include syntax="language-root.css.scss" collection="at-rule-warn"/>
+										<include syntax="language-root.css.scss" collection="at-rule-debug"/>
+										<zone name="selector.css">
+											<starts-with>(?=[:.*#a-zA-Z@\\])</starts-with>
+											<ends-with>(?=\{)</ends-with>
+											<subzones>
+											    <include collection="pseudo-classes"/>
+											    <include collection="string-double"/>
+											    <include collection="string-single"/>
+												<include collection="comments"/>
+												<zone name="punctuation.comma">
+													<expression>,</expression>
+												</zone>
+											</subzones>
+										</zone>
+									</subzones>
+								</zone>
+								<zone name="selector.css">
+									<starts-with>(?=[:.*#a-zA-Z@\\])</starts-with>
+									<ends-with>(?=\{)</ends-with>
+									<subzones>
+									    <include collection="pseudo-classes"/>
+									    <include collection="string-double"/>
+									    <include collection="string-single"/>
+										<include collection="comments"/>
+										<zone name="punctuation.comma">
+											<expression>,</expression>
+										</zone>
+									</subzones>
+								</zone>
+							</subzones>
+						</zone>
+						<zone name="selector.css">
+							<starts-with>(?=[:.*#a-zA-Z@\\])</starts-with>
+							<ends-with>(?=\{)</ends-with>
+							<subzones>
+							    <include collection="pseudo-classes"/>
+							    <include collection="string-double"/>
+							    <include collection="string-single"/>
+								<include collection="comments"/>
+								<zone name="punctuation.comma">
+									<expression>,</expression>
+								</zone>
+							</subzones>
+						</zone>
+					</subzones>
+				</zone>
+				<zone name="selector.css">
+					<starts-with>(?=[:.*#a-zA-Z@\\])</starts-with>
+					<ends-with>(?=\{)</ends-with>
+					<subzones>
+					    <include collection="pseudo-classes"/>
+					    <include collection="string-double"/>
+					    <include collection="string-single"/>
+						<include collection="comments"/>
+						<zone name="punctuation.comma">
+							<expression>,</expression>
+						</zone>
+					</subzones>
+				</zone>
+			</subzones>
+		</zone>
+		
+		
+		<zone name="selector.css">
+			<starts-with>(?=[:.*#a-zA-Z@\\])</starts-with>
+			<ends-with>(?=\{)</ends-with>
+			<subzones>
+			    <include collection="pseudo-classes"/>
+			    <include collection="string-double"/>
+			    <include collection="string-single"/>
+				<include collection="comments"/>
+				<zone name="punctuation.comma">
+					<expression>,</expression>
+				</zone>
 			</subzones>
 		</zone>
 	</injection>
