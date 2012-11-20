@@ -1,3 +1,7 @@
+I am aware of bugs in this Sugar but as I now use Coda 2 instead of Espresso 2 I no longer have the time or motivation to update it. Please feel free to fork and fix bugs yourself, I may find time to merge pull requests, or you could maintain your own branch.
+
+---
+
 # SCSS (Sass) Sugar for Espresso 2
 
 ## Features (Work in progress)
